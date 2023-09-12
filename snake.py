@@ -21,6 +21,7 @@ class Snake:
             self.add_segment(positions)
 
     def add_segment(self, positions):
+        """used to increase the size of the snake one segment at a time"""
         self.segment = Turtle(shape="square")
         self.segment.penup()
         self.segment.speed("slowest")
@@ -59,6 +60,7 @@ class Snake:
             self.head.setheading(RIGHT)
 
     def reset(self):
+        """reset the snake when a new game starts"""
         for seg in self.snake:
             seg.goto(1000,1000)
         self.snake.clear()
