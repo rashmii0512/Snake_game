@@ -24,23 +24,17 @@ class Score(Turtle):
         self.show_score()
 
     def show_score(self):
+        """Whenever the score increments, the previous score is erased and new score is written"""
         self.clear()
         self.goto(0, -280)
         self.write("Press Space to end game", False, align=ALIGN, font=SMALL_FONT)
         self.goto(0, 260)
         self.write(f"Score: {self.score} High Score: {self.high_score}", False, align=ALIGN, font=FONT)
 
-
-    # def game_over(self):
-    #     self.goto(0, 0)
-    #     self.write("Game Over", False, align=ALIGN, font= BIG_FONT)
-
     def reset(self):
+        """If the score is above high score, update the highscore"""
         if self.score > self.high_score:
             self.high_score = self.score
-            # self.goto(0, 100)
-            # self.write(f"Congratulations! New Highscore: {self.score}", False, align=ALIGN, font=FONT)
-            # self.goto(0,260)
             with open("highScore.txt", mode="w") as data:
                 data.write(f"{self.high_score}")
         self.score = 0
