@@ -3,6 +3,7 @@ import random
 
 class Food(Turtle):
     def __init__(self):
+        """gives shape, size and color to the food"""
         super().__init__()
         self.shape("circle")
         self.penup()
@@ -12,6 +13,7 @@ class Food(Turtle):
         self.refresh()
 
     def refresh(self):
+        """changes the location of the food"""
         random_x = random.randint(-275, 275)
         random_y = random.randint(-275, 275)
         self.goto(random_x, random_y)
